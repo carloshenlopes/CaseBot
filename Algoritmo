@@ -1,0 +1,93 @@
+import discord
+import asyncio
+import random
+
+client = discord.Client()
+COR= 0x690FC3
+msg_id = None
+msg_user = None
+@client.event
+async def on_ready():
+	print('Bot Online - Olá Mundo!')
+	print(client.user.name)
+	print(cleint.user.id)
+	print('----------PR----------')
+
+@client.event
+async def on_message(message):
+	if message.content.lowet().startswitch('!test')
+		await client.send_message(message.channel, "Olá Mundo, estou vivo.")
+
+	if message.content.lower().startswitch ('!moeda'):
+		if message.author.id == "308792502998269952":	
+			choice = random.randint(1,2)
+				if choice == 1:
+					await client.add_reaction(message, '🙂'):
+				if choice == 2:
+					await client.add_reaction(message, '👑'):
+		else:
+			await client.send_message(message.channel, "você não tem permissão para utilizar esse comando!  🙁 ")
+
+@client.event
+async def on_message(message):
+	if message.content.lower()startswitch("!cargos"):
+	embed = discord.Embed(
+		title= "escolha seu cargo de acordo com a cor que tá representada",
+		color = COR,
+		description="Administrador = 💚 \n"
+			    "Contador = 💙 \n"
+			    "Desenvolvedor = ❤️ \n"
+			    "Designer = 💛",
+	)
+	botmsg = await client.send_message(message.channel, embed=embed)
+	await client.add_reaction(botmsg, "💚")
+	await client.add_reaction(botmsg, "💙")
+	await client.add_reaction(botmsg, "❤️")
+	await client.add_reaction(botmsg, "💛")
+
+	global msg_id
+	msg_id = bot.msg.id
+	global msg_user
+	msg_user = message.author 
+
+@client.event
+async def on_reaction_add (reaction, user):
+	msg = reaction	
+	if reaction.emoji == "💚" and msg.id == msg_id and user == msg_user:
+	role = discord.utils.find(lambda r: r.name == "Administrador", msg.server.roles)
+	await client.add_roles(user, role) 
+
+	if reaction.emoji == "💙" and msg.id == msg_id and user == msg_user:
+	role = discord.utils.find(lambda r: r.name == "Contador", msg.server.roles)
+	await client.add_roles(user, role) 
+
+	if reaction.emoji == "❤️" and msg.id == msg_id and user == msg_user:
+	role = discord.utils.find(lambda r: r.name == "Desenvolvedor", msg.server.roles)
+	await client.add_roles(user, role) 
+
+	if reaction.emoji == "💛" and msg.id == msg_id and user == msg_user:
+	role = discord.utils.find(lambda r: r.name == "Designer", msg.server.roles)
+	await client.add_roles(user, role) 
+
+@client.event
+async def on_reaction_remove (reaction, user):
+	msg = reaction.message
+	
+	if reaction.emoji == "💚" and msg.id == msg_id and user == msg_user:
+	role = discord.utils.find(lambda r: r.name == "Administrador", msg.server.roles)
+	await client.add_roles(user, role) 
+
+	if reaction.emoji == "💙" and msg.id == msg_id and user == msg_user:
+	role = discord.utils.find(lambda r: r.name == "Contador", msg.server.roles)
+	await client.add_roles(user, role) 
+
+	if reaction.emoji == "❤️" and msg.id == msg_id and user == msg_user:
+	role = discord.utils.find(lambda r: r.name == "Desenvolvedor", msg.server.roles)
+	await client.add_roles(user, role) 
+
+	if reaction.emoji == "💛" and msg.id == msg_id and user == msg_user:
+	role = discord.utils.find(lambda r: r.name == "Designer", msg.server.roles)
+	await client.add_roles(user, role)  
+
+
+client.run('NTcxNDExMzc5ODQwNDgzMzc0.XMNZxQ.mNpREJn8zXiCYfY_KcZqyuNL3cY')
